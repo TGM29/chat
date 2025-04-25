@@ -1,0 +1,468 @@
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Estilos para o cabeçalho da conversa */
+.conversation-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 12px 16px;
+}
+
+.title-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.title-display h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-color);
+  letter-spacing: -0.03em;
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  color: var(--text-color-secondary);
+  padding: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.edit-button:hover {
+  opacity: 1;
+  background-color: var(--hover-color);
+}
+
+.title-edit {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.title-edit input {
+  flex: 1;
+  font-size: 1.1rem;
+  padding: 6px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+}
+
+.confirm-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.model-info {
+  font-size: 0.8rem;
+  color: var(--text-color-secondary);
+  margin-top: 0.3rem;
+}
+
+.model-info span {
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* Garantir que a barra lateral fique fixa */
+.sidebar {
+  width: 260px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.sidebar-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.sidebar-header h2 {
+  color: var(--text-color);
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.conversation-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+/* Estilos para o seletor de modelo */
+.header-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.model-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-color-secondary);
+}
+
+.model-selector select {
+  padding: 6px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  box-shadow: 0 0 10px var(--shadow-color);
+  overflow: hidden;
+}
+
+.app-header {
+  padding: 12px 16px;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: var(--primary-color);
+}
+
+.chat-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.app-footer {
+  padding: 12px 16px;
+  background-color: var(--secondary-color);
+  border-top: 1px solid var(--border-color);
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: auto;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.message {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 3px;
+  position: relative;
+  box-shadow: 0 1px 2px var(--shadow-color);
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: var(--secondary-color);
+  border-left: 3px solid var(--primary-color);
+  color: var(--text-color);
+}
+
+.assistant-message {
+  align-self: flex-start;
+  background-color: var(--secondary-color);
+  border-left: 3px solid var(--text-color-secondary);
+  color: var(--text-color);
+}
+
+.message-content {
+  margin: 0;
+}
+
+.message-content p {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
+}
+
+.message-timestamp {
+  font-size: 0.7rem;
+  color: var(--text-color-secondary);
+  text-align: right;
+  margin-top: 6px;
+}
+
+.input-form {
+  width: 100%;
+}
+
+.input-container {
+  display: flex;
+  gap: 8px;
+}
+
+.input-container textarea {
+  flex: 1;
+  resize: none;
+  min-height: 40px;
+  padding: 10px 12px;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
+  background-color: var(--secondary-color);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+.input-container textarea::placeholder {
+  color: var(--text-color-secondary);
+}
+
+.input-container textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.send-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  padding: 0;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.send-button:disabled {
+  background-color: var(--secondary-color);
+  color: var(--text-color-secondary);
+  cursor: not-allowed;
+}
+
+.loading-indicator {
+  margin-top: 8px;
+  text-align: center;
+  font-style: italic;
+  color: var(--text-color-secondary);
+}
+
+.error-message {
+  color: var(--accent-color);
+  background-color: rgba(255, 77, 77, 0.1);
+  padding: 12px;
+  border-radius: 3px;
+  margin: 12px 0;
+  text-align: center;
+  border-left: 3px solid var(--accent-color);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-color-secondary);
+  font-style: italic;
+  margin: auto;
+}
+
+.conversation-item {
+  padding: 8px 12px;
+  border-radius: 3px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 3px solid transparent;
+  transition: background-color 0.2s ease;
+  text-align: left;
+}
+
+.conversation-item:hover {
+  background-color: var(--hover-color);
+}
+
+.conversation-item.active {
+  background-color: var(--hover-color);
+  border-left-color: var(--primary-color);
+}
+
+.conversation-title {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  text-align: left;
+}
+
+.conversation-actions {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.conversation-item:hover .conversation-actions {
+  opacity: 1;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: var(--text-color-secondary);
+  cursor: pointer;
+  padding: 4px;
+  font-size: 0.8rem;
+  border-radius: 3px;
+}
+
+.delete-button:hover {
+  color: var(--accent-color);
+  background-color: rgba(255, 77, 77, 0.1);
+}
+
+.empty-conversations {
+  padding: 30px 16px;
+  text-align: center;
+  color: var(--text-color-secondary);
+  font-style: italic;
+}
+
+.new-chat-button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+.new-chat-button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Fixar altura do app para evitar scroll global */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-height: 40%;
+  }
+
+  .main-content {
+    flex: 1;
+  }
+}
